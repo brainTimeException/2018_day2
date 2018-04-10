@@ -22,6 +22,7 @@ def find_maxima(x):
                 idx.append( i )
             elif x[i+1] == x[i]:
                 eql_idx = i
+
         elif i == len(x) - 1:
             if x[i-1] < x[i]:
                 idx.append(i)
@@ -32,8 +33,7 @@ def find_maxima(x):
         elif x[i-1] < x[i] and x[i+1] < x[i]:
             idx.append(i)
 
-
-        elif x[i+1] == x[i]:
+        elif x[i+1] == x[i] and x[i-1] < x[i]:
             if eql_idx < 0:
                 eql_idx = i
         
