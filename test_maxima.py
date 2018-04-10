@@ -51,27 +51,39 @@ def test_saddle_plateau():
     assert exp == out
 
 
-def test_saddle_right():
+def test_saddle_rise_right():
     inp = [1, 2, 2, 3, 1]
     out = find_maxima(inp)
     exp = [3]
     assert exp == out
 
 
-def test_saddle_left():
+def test_saddle_rise_left():
     inp = [1, 3, 2, 2, 1]
     out = find_maxima(inp)
     exp = [1]
     assert exp == out
 
 
-def test_saddle_both():
+def test_saddle_rise_both():
     inp = [3, 2, 2, 3]
     out = find_maxima(inp)
     exp = [0, 3]
     assert exp == out
 
 
+def test_saddle_open_right():
+    inp = [1, 2, 2, 2]
+    out = find_maxima(inp)
+    exp = [1, 2, 3]
+    assert exp == out
+
+
+def test_saddle_open_left():
+    inp = [2, 2, 2, 1]
+    out = find_maxima(inp)
+    exp = [0, 1, 2]
+    assert exp == out
 # additional tests for
 # - max on both borders
 #   x = [4, 2, 1, 3, 1, 2]
