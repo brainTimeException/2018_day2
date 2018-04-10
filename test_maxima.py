@@ -8,17 +8,20 @@ def test_simple_sequence_two_maxima():
     exp = [2, 4]
     assert exp == out
 
+
 def test_simple_sequence_one_maximum():
     inp = [-i**2 for i in range(-3, 4)]
     out = find_maxima(inp)
     exp = [3]
     assert exp == out
 
+
 def test_sine_wave():
     inp = [np.sin(2*alpha) for alpha in np.linspace(0.0, 5.0, 100)]
     out = find_maxima(inp)
     exp = [16,78]
     assert exp == out
+
 
 def test_max_on_both_borders():
     inp = [4, 2, 1, 3, 1, 2]
@@ -39,6 +42,35 @@ def test_max_on_both_borders3():
     out = find_maxima(inp)
     exp = [0,3]
     assert exp == out
+
+
+def test_saddle_plateau():
+    inp = [1, 2, 2, 1]
+    out = find_maxima(inp)
+    exp = [1, 2]
+    assert exp == out
+
+
+def test_saddle_right():
+    inp = [1, 2, 2, 3, 1]
+    out = find_maxima(inp)
+    exp = [3]
+    assert exp == out
+
+
+def test_saddle_left():
+    inp = [1, 3, 2, 2, 1]
+    out = find_maxima(inp)
+    exp = [1]
+    assert exp == out
+
+
+def test_saddle_both():
+    inp = [3, 2, 2, 3]
+    out = find_maxima(inp)
+    exp = [0, 3]
+    assert exp == out
+
 
 # additional tests for
 # - max on both borders
