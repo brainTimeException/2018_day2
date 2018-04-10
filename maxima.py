@@ -22,14 +22,11 @@ def find_maxima(x):
                 idx.append( i )
             elif x[i+1] == x[i]:
                 eql_idx = i
-                print( "left side plateau open: ", i )
 
         elif i == len(x) - 1:
             if x[i-1] < x[i]:
                 idx.append(i)
-            #elif x[i-1] == x[i]:
-            #    if eql_idx < 0:
-            #        eql_idx = i
+            
         # `i` is a local maximum if the signal decreases before and after it
         elif x[i-1] < x[i] and x[i+1] < x[i]:
             idx.append(i)
@@ -37,19 +34,15 @@ def find_maxima(x):
         elif x[i+1] == x[i] and x[i-1] < x[i]:
             if eql_idx < 0:
                 eql_idx = i
-                print( "set new", eql_idx )
         
         elif x[i+1] < x[i] and eql_idx >= 0:
-            for j in range( eql_idx, i + 1 ):
-                idx.append( j )
-            print( "reset", eql_idx, i )
+            idx.extend( range( eql_idx, i + 1 ) )
             eql_idx = -1
 
         elif x[i+1] > x[i] and eql_idx >= 0:
             eql_idx = -1
-            print( "no plateau", i )
         
     if eql_idx >= 0:
-        for i in range( eql_idx, len(x)):
-            idx.append( i )
+        idx.extend( range( eql_idx, len( x )  ) )
+    
     return idx
