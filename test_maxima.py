@@ -84,6 +84,19 @@ def test_saddle_open_left():
     out = find_maxima(inp)
     exp = [0, 1, 2]
     assert exp == out
+
+
+def test_saddle_just_plateau():
+    inp = [2, 2, 2, 2]
+    out = find_maxima(inp)
+    exp = [0, 1, 2, 3]
+    assert exp == out
+
+def test_saddle_two_plateaus():
+    inp = [2, 2, 2, 1, 2, 2, 2]
+    out = find_maxima(inp)
+    exp = [0, 1, 2, 4, 5, 6]
+    assert exp == out
 # additional tests for
 # - max on both borders
 #   x = [4, 2, 1, 3, 1, 2]
